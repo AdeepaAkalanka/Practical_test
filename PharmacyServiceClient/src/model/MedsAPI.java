@@ -59,8 +59,8 @@ public class MedsAPI extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Map paras = getParasMap(request);
-		String output = userObj.updateMedDetails(paras.get("hidMedIDSave").toString(), paras.get("med_name").toString(),
-				paras.get("med_code").toString(), paras.get("med_price").toString(), paras.get("med_description").toString());
+		String output = userObj.updateMedDetails(paras.get("hidMedIDSave").toString(), paras.get("med_name").toString().replace("+", " ").replace("%2C", ",").replace("%3A", ":"),
+				paras.get("med_code").toString().replace("+", " ").replace("%2C", ",").replace("%3A", ":"), paras.get("med_price").toString().replace("+", " ").replace("%2C", ",").replace("%3A", ":"), paras.get("med_description").toString().replace("+", " ").replace("%2C", ",").replace("%3A", ":"));
 		response.getWriter().write(output);
 	}
 
